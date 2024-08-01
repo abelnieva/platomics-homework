@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: {{ .Values.platomics.namespace | quote }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: busybox
+        image: busybox:1.32.0
+        command: ['sh','-c','tail -f /dev/null']
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          readOnlyRootFilesystem: true
+        volumeMounts:
+        - name: tmp-volume
+          mountPath: /tmp
+        livenessProbe:
+          exec:
+            command:
+            - "true"
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        readinessProbe:
+          exec:
+            command: ["sh","-c","nc -z db1 6379"]
+          initialDelaySeconds: 3
+          periodSeconds: 3
+      restartPolicy: Always
+      volumes:
+      - name: tmp-volume
+        emptyDir: {}
+
+       

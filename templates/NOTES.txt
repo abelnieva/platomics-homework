@@ -1,0 +1,5 @@
+Thank you for installing {{ .Chart.Name }}.
+1. DB username
+{{ .Values.platomics.db.username }}
+2. DB password
+{{ .Values.platomics.db.password }}

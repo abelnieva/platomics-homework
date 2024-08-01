@@ -1,0 +1,16 @@
+platomics: 
+  db:
+    password: "pass" 
+    username: "dbuser"
+  namespace: "project-plato"
+
+postgresql:
+  enabled: true
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+kube-prometheus-stack:
+  prometheus:
+    prometheusSpec:
+      serviceMonitorSelectorNilUsesHelmValues: false

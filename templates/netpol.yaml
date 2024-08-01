@@ -1,0 +1,39 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: backend-networkpolicy
+  namespace: {{ .Values.platomics.namespace | quote }}
+spec:
+  endpointSelector:
+    matchLabels:
+      app: backend
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            app: db1
+      toPorts:
+        - ports:
+            - port: "6379"
+              protocol: TCP            
+            - port: "80"
+              protocol: TCP
+    - toEndpoints:
+        - matchLabels:
+            app: db2
+      toPorts:
+        - ports:
+            - port: "5432"
+              protocol: TCP
+            - port: "80"
+              protocol: TCP
+    - toEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: kube-system
+            k8s-app: kube-dns
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: UDP
+          rules:
+            dns:
+              - matchPattern: "*"

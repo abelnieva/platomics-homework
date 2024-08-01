@@ -1,0 +1,9 @@
+dependencies:
+- name: postgresql
+  repository: oci://registry-1.docker.io/bitnamicharts
+  version: 15.5.20
+- name: kube-prometheus-stack
+  repository: https://prometheus-community.github.io/helm-charts
+  version: 61.6.0
+digest: sha256:6279e1f7f98eb5b2aa8471e684c56358a421e00e51a778ed039e622450f9ed06
+generated: "2024-07-31T12:17:29.872435715+02:00"
