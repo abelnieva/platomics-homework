@@ -32,10 +32,10 @@ Creating a production environment for containerized applications with a focus on
 Here’s a diagram to illustrate the proposed architecture:
 
 Diagram 1 
-![Accounts design](platomics-test/accounts.drawio.png "Accounts")
+![Accounts design](accounts.drawio.png "Accounts")
 
 Diagram 2 
-![infra design](platomics-test/Infra.drawio.png "infra")
+![infra design](Infra.drawio.png "infra")
 
 ### Network Requirements 
 
