@@ -32,13 +32,16 @@ Creating a production environment for containerized applications with a focus on
 Here’s a diagram to illustrate the proposed architecture:
 
 Diagram 1 
+
+
 ![Accounts design](accounts.drawio.png "Accounts")
 
 Diagram 2 
+
+
 ![infra design](Infra.drawio.png "infra")
 
-### Network Requirements 
-
+### Network Requirements 
 * 3 AZ
 * AWS Internal endpoints for services 
 * Subnets 
@@ -46,7 +49,7 @@ Diagram 2
     * Private
     * Data
 
-### CI
+### CI 
 
 Github actions or ArgoCD workflow to setup verification and build pipelines 
 
